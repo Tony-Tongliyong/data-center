@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="jdbc.properties"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <!-- tk.mybatis配置 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.tong.mybatis.plugin.TkMybatisMapper"/>
+        </plugin>
+
+        <!-- 数据库链接 -->
+        <jdbcConnection driverClass="${datasource.druid.driver-class-name}"
+                        connectionURL="${datasource.druid.url}"
+                        userId="${datasource.druid.username}"
+                        password="${datasource.druid.password}">
+        </jdbcConnection>
+
+        <!--&lt;!&ndash; 数据库链接 &ndash;&gt;-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+                        <!--connectionURL="jdbc:mysql://localhost:3306/clean"-->
+                        <!--userId="root"-->
+                        <!--password="root">-->
+        <!--</jdbcConnection>-->
+        <!-- 生成实体类的包名和位置 -->
+        <javaModelGenerator targetPackage="com.shuzheng.legalpersondb.dao.entity" targetProject="C:\Users\54192\IdeaProjects\legal_person_db\data-dao\src\main\java"/>
+        <!-- 生成的映射文件包名和位置 -->
+        <sqlMapGenerator targetPackage="com.shuzheng.legalpersondb.dao.xml" targetProject="C:\Users\54192\IdeaProjects\legal_person_db\data-dao\src\main\java"/>
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator targetPackage="com.shuzheng.legalpersondb.dao.mapper" targetProject="C:\Users\54192\IdeaProjects\legal_person_db\data-dao\src\main\java" type="XMLMAPPER"/>
+
+        <!-- 要生成的那些表 -->
+        <table tableName="mapping_relation" domainObjectName="MappingRelation">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="dept_info" domainObjectName="DeptInfo">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="table_info" domainObjectName="TableInfo">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="corporate_table_info" domainObjectName="CorporateTableInfo">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="corporate_table_column_info" domainObjectName="CorporateTableColumnInfo">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="table_column_info" domainObjectName="TableColumnInfo">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="table_task_record" domainObjectName="TableTaskRecord">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="data_input_statistic" domainObjectName="DataInputStatistic">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="data_input_unrepeat_statistic" domainObjectName="DataInputUnrepeatStatistic">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="cor_person_city_statistics" domainObjectName="CorPersonCityStatistics">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="cor_person_industry_statistics" domainObjectName="CorPersonIndustryStatistics">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="cor_person_subject_statistics" domainObjectName="CorPersonSubjectStatistics">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="statistic_result_log" domainObjectName="StatisticResultLog">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="column_algorithmic" domainObjectName="ColumnAlgorithmic">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="exchange_rate" domainObjectName="ExchangeRate">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="industry_dict" domainObjectName="IndustryDict">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="relation_table" domainObjectName="RelationTable">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>
