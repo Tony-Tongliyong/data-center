@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import tk.mybatis.mapper.autoconfigure.MapperAutoConfiguration;
 
 /**
@@ -14,6 +15,7 @@ import tk.mybatis.mapper.autoconfigure.MapperAutoConfiguration;
  * @time: 2019/3/26 13:58
  * @desc:
  */
+@EnableSwagger2
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, MapperAutoConfiguration.class})
 @ComponentScan(basePackages = "com.tong")
 @EnableScheduling

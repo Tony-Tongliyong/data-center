@@ -25,11 +25,11 @@ import javax.sql.DataSource;
  * @desc:
  */
 @Configuration
-@MapperScan(basePackages = "com.shuzheng.legalpersondb.dao.mapper" ,sqlSessionFactoryRef = "datasourceSqlSessionFactory")
+@MapperScan(basePackages = "com.tong.mybatis.mapper" ,sqlSessionFactoryRef = "datasourceSqlSessionFactory")
 @Slf4j
 public class DataSourceConfig {
 
-    private static String MAPPER_LOCATION = "classpath*:com/shuzheng/legalpersondb/dao/xml/*.xml" ;
+    private static String MAPPER_LOCATION = "classpath*:com/tong/mybatis/xml/*.xml" ;
 
     @Primary
     @Bean(name = "dataSource")
@@ -51,7 +51,7 @@ public class DataSourceConfig {
         final SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(DataSourceConfig.MAPPER_LOCATION));
-        factoryBean.setTypeAliasesPackage("com.shuzheng.legalpersondb.dao.mapper");
+        factoryBean.setTypeAliasesPackage("com.tong.mybatis.mapper");
         return factoryBean.getObject();
     }
     @Primary
