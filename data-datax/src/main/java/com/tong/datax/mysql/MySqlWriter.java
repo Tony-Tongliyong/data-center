@@ -2,6 +2,7 @@ package com.tong.datax.mysql;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.List;
@@ -14,72 +15,51 @@ import java.util.List;
  * @desc:
  */
 @Data
-public class Writer {
+public class MySqlWriter {
 
-    /**
-     * 任务名称
-     */
-    private final String name = "mysqlwriter";
-    /**
-     * 写入类型
-     */
+    @ApiModelProperty("写入类型")
+    private final String writerName = "mysqlwriter";
+    @ApiModelProperty("写入模式")
     String writeMode = "insert";
-    /**
-     * 用户名
-     */
-    String userName;
-    /**
-     * 密码
-     */
-    String password;
-    /**
-     * 字段
-     */
-    List<String> columns;
-    /**
-     * session值
-     */
+    @ApiModelProperty("账户名称")
+    String writerUserName;
+    @ApiModelProperty("账户密码")
+    String writerPassword;
+    @ApiModelProperty("字段")
+    String writerColumns;
+    @ApiModelProperty("session值")
     final String session = "set session sql_mode='ANSI'";
-    /**
-     * 预执行语句
-     */
+    @ApiModelProperty("预执行语句")
     String preSql;
-    /**
-     * 表名
-     */
-    String table;
-    /**
-     * 连接地址
-     */
-    String jdbcUrl;
+    @ApiModelProperty("表名")
+    String writerTable;
+    @ApiModelProperty("连接接地址")
+    String writerJdbcUrl;
 
-    private String makeJson(){
-        StringBuffer sb = new StringBuffer();
+
+    public JSONObject makeJson(){
         JSONObject writer = new JSONObject();
-        writer.put("name",name);
+        writer.put("name",writerName);
 
         JSONObject parameter = new JSONObject();
-        parameter.put("username",userName);
-        parameter.put("password",password);
+        parameter.put("username",writerUserName);
+        parameter.put("password",writerPassword);
         JSONArray array = new JSONArray();
-        columns.forEach(column->{
-            array.add(column);
-        });
+        array.add(writerColumns);
         parameter.put("column",array);
         parameter.put("writeMode",writeMode);
         parameter.put("preSql",preSql);
         parameter.put("session",session);
         JSONObject connection = new JSONObject();
         JSONArray tableJson = new JSONArray();
-        tableJson.add(table);
+        tableJson.add(writerTable);
         connection.put("table",tableJson);
         JSONArray urlJson = new JSONArray();
-        urlJson.add(jdbcUrl);
+        urlJson.add(writerJdbcUrl);
         connection.put("jdbcUrl",urlJson);
         parameter.put("connection",connection);
 
         writer.put("parameter",parameter);
-        sb.append(writer);
-        return sb.toString();
+        return writer;
     }
 }

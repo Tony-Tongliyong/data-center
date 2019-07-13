@@ -1,6 +1,8 @@
 package com.tong.datax;
 
 import com.alibaba.fastjson.JSONObject;
+import com.tong.datax.mysql.MySqlReader;
+import com.tong.datax.mysql.MySqlWriter;
 import lombok.Data;
 
 /**
@@ -11,21 +13,24 @@ import lombok.Data;
  * @desc:
  */
 @Data
-public class JsonBulid {
+public class JsonBulid<T1,T2> {
 
-    String dataBaseType;
+    T1 reader;
 
-    private JSONObject makeJson(){
+    T2 writer;
+
+     JSONObject makeJson(){
         JSONObject json = new JSONObject();
         JSONObject job = new JSONObject();
         JSONObject setting = new JSONObject();
         JSONObject speed = new JSONObject();
-        speed.put("chaneel","1");
+        speed.put("channel","1");
         setting.put("speed",speed);
         JSONObject content = new JSONObject();
         content.put("reader",reader());
         content.put("writer",writer());
         job.put("setting",setting);
+        job.put("content",content);
         json.put("job",job);
         return json;
     }
@@ -34,16 +39,24 @@ public class JsonBulid {
      * 读取来源
      * @return
      */
-    private JSONObject reader(){
-        return null;
+    JSONObject reader(){
+        if(reader instanceof MySqlReader){
+            return ((MySqlReader) reader).makeJson();
+        }else {
+            return null;
+        }
     }
 
     /**
      * 写入去处
      * @return
      */
-    private JSONObject writer(){
-        return null;
+    JSONObject writer(){
+        if(writer instanceof MySqlWriter){
+            return ((MySqlWriter) writer).makeJson();
+        }else {
+            return null;
+        }
     }
 
 

@@ -2,9 +2,9 @@ package com.tong.datax.mysql;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.util.List;
 
 /**
  * @author: tongly
@@ -14,64 +14,47 @@ import java.util.List;
  * @desc:
  */
 @Data
-public class Reader {
+public class MySqlReader {
 
-    /**
-     * 任务名称
-     */
-    private final String name = "mysqlreader";
-    /**
-     * 用户名
-     */
-    String userName;
-    /**
-     * 密码
-     */
-    String password;
-    /**
-     * 字段
-     */
-    List<String> columns;
-    /**
-     * 区分键
-     */
+    @ApiModelProperty("读取类型")
+    private final String readerName = "mysqlreader";
+    @ApiModelProperty("连接账户名")
+    String readerUserName;
+    @ApiModelProperty("连接密码")
+    String readerPassword;
+    @ApiModelProperty("字段")
+    String readerColumns;
+    @ApiModelProperty("区分键")
     String splitPk;
-    /**
-     * 表名
-     */
-    String table;
-    /**
-     * 连接地址
-     */
-    String jdbcUrl;
+    @ApiModelProperty("读取表名")
+    String readerTable;
+    @ApiModelProperty("连接地址")
+    String readerJdbcUrl;
 
-    private String makeJson(){
-        StringBuffer sb = new StringBuffer();
+
+    public JSONObject makeJson(){
         //reader模块
         JSONObject reader = new JSONObject();
-        reader.put("name",name);
+        reader.put("name",readerName);
         //parameter模块
         JSONObject parameter = new JSONObject();
-        parameter.put("username",userName);
-        parameter.put("password",password);
+        parameter.put("username",readerUserName);
+        parameter.put("password",readerPassword);
         JSONArray array = new JSONArray();
-        columns.forEach(column->{
-            array.add(column);
-        });
+        array.add(readerColumns);
         parameter.put("column",array);
         parameter.put("splitPk",splitPk);
         JSONObject connection = new JSONObject();
         JSONArray tableJson = new JSONArray();
-        tableJson.add(table);
+        tableJson.add(readerTable);
         connection.put("table",tableJson);
         JSONArray urlJson = new JSONArray();
-        urlJson.add(jdbcUrl);
+        urlJson.add(readerJdbcUrl);
         connection.put("jdbcUrl",urlJson);
         parameter.put("connection",connection);
-        //
+
         reader.put("parameter",parameter);
-        sb.append(reader);
-        return sb.toString();
+        return reader;
     }
 
     public static void main(String[] args) {
