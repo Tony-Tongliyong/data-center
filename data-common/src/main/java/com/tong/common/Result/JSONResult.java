@@ -18,5 +18,4 @@ public class JSONResult<T> {
 
     T data;
 
-
 }

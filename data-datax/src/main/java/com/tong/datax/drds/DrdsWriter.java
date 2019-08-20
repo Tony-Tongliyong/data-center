@@ -1,25 +1,21 @@
-package com.tong.datax.mysql;
+package com.tong.datax.drds;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author: tongly
  * @contact:wuxin@yscredit.com
- * @file: Writer
- * @time: 2019/7/12 14:17
+ * @file: DrdsWriter
+ * @time: 2019/8/20 16:16
  * @desc:
  */
-@Data
-public class MySqlWriter {
+public class DrdsWriter {
 
     @ApiModelProperty("写入类型")
-    private final String writerName = "mysqlwriter";
+    private final String writerName = "drdswriter";
     @ApiModelProperty("写入模式")
     private String writeMode = "insert";
     @ApiModelProperty("账户名称")
@@ -28,8 +24,6 @@ public class MySqlWriter {
     private String writerPassword;
     @ApiModelProperty("字段")
     private List<String> writerColumns;
-    @ApiModelProperty("session值")
-    private List<String> session = new ArrayList<>();
     @ApiModelProperty("预执行语句")
     private List<String> preSql;
     @ApiModelProperty("表名")
@@ -48,8 +42,6 @@ public class MySqlWriter {
         parameter.put("column",writerColumns);
         parameter.put("writeMode",writeMode);
         parameter.put("preSql",preSql);
-        session.add("set session sql_mode='ANSI'");
-        parameter.put("session",session);
         JSONObject connection = new JSONObject();
         connection.put("table",writerTable);
         connection.put("jdbcUrl",writerJdbcUrl);

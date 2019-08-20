@@ -9,6 +9,14 @@ package com.tong.common.Result;
  */
 public class ResultUtils {
 
+    public static JSONResult result(Boolean bool){
+        if(bool){
+            return success();
+        }else{
+            return failure();
+        }
+    }
+
     public static JSONResult success(Object data){
         JSONResult jsonResult = new JSONResult();
         jsonResult.setData(data);
@@ -30,4 +38,5 @@ public class ResultUtils {
         jsonResult.setMessage("失败");
         return jsonResult;
     }
+
 }

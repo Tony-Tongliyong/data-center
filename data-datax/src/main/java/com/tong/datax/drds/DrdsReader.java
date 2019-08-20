@@ -1,4 +1,4 @@
-package com.tong.datax.mysql;
+package com.tong.datax.drds;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -7,19 +7,18 @@ import lombok.Data;
 
 import java.util.List;
 
-
 /**
  * @author: tongly
  * @contact:wuxin@yscredit.com
- * @file: Reader
- * @time: 2019/7/12 14:17
+ * @file: DrdsReader
+ * @time: 2019/8/20 16:16
  * @desc:
  */
 @Data
-public class MySqlReader {
+public class DrdsReader {
 
     @ApiModelProperty("读取类型")
-    private final String readerName = "mysqlreader";
+    private final String readerName = "drdsreader";
     @ApiModelProperty("连接账户名")
     private String readerUserName;
     @ApiModelProperty("连接密码")
@@ -33,7 +32,6 @@ public class MySqlReader {
     @ApiModelProperty("连接地址")
     private List<String> readerJdbcUrl;
 
-
     public JSONObject makeJson(){
         //reader模块
         JSONObject reader = new JSONObject();
@@ -43,19 +41,11 @@ public class MySqlReader {
         parameter.put("username",readerUserName);
         parameter.put("password",readerPassword);
         parameter.put("column",readerColumns);
-        parameter.put("splitPk",splitPk);
         JSONObject connection = new JSONObject();
         connection.put("table",readerTable);
         connection.put("jdbcUrl",readerJdbcUrl);
         parameter.put("connection",connection);
-
         reader.put("parameter",parameter);
         return reader;
     }
-
-    public static void main(String[] args) {
-
-    }
-
-
 }

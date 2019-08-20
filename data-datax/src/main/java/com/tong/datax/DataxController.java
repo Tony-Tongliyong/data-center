@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.tong.common.Result.JSONResult;
 import com.tong.common.Result.ResultUtils;
 import com.tong.common.utils.FileUtils;
+import com.tong.common.utils.ShellUtils;
 import com.tong.datax.mysql.MySqlReader;
 import com.tong.datax.mysql.MySqlWriter;
 import io.swagger.annotations.Api;
@@ -34,8 +35,7 @@ public class DataxController {
         jsonBulid.setReader(mysqlReader);
         jsonBulid.setWriter(mysqlWriter);
         JSONObject jsonObject = jsonBulid.makeJson();
-        JSONResult<JSONObject> result = ResultUtils.success(jsonObject);
-        return result;
+        return ResultUtils.success(jsonObject);
     }
 
     /**
@@ -48,17 +48,17 @@ public class DataxController {
     @RequestMapping(value = "mysqlToMysqlJSONFile/", method = RequestMethod.POST)
     public JSONResult mysqlToMysqlJSONFile(String jsonStr,String fileName){
        Boolean flag =  FileUtils.stringToFile(jsonStr,fileName);
-       if(flag){
-           return ResultUtils.success();
-       }else{
-           return ResultUtils.failure();
-       }
+        return ResultUtils.result(flag);
     }
 
     /**
      * mysql -- mysql 执行datax迁移
      */
+    @ApiOperation(value="mysql数据导入到mysql执行脚本", notes="mysql数据导入到mysql")
+    @RequestMapping(value = "mysqlToMysqlExecute/", method = RequestMethod.POST)
     public JSONResult mysqlToMysqlExecute(String fileName){
-        return null;
+        String shell = "python datax.py "+fileName;
+        Boolean flag = ShellUtils.execute(shell);
+        return ResultUtils.result(flag);
     }
 }
