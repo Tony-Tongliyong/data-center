@@ -19,36 +19,41 @@ public class OdpsWriter {
     @ApiModelProperty("写入类型")
     private final String writerName = "odpswriter";
     @ApiModelProperty("连接账户名")
-    private String accessID;
+    private String writerAccessID;
     @ApiModelProperty("连接密码")
-    private String accessKey;
+    private String writerAccessKey;
     @ApiModelProperty("项目空间")
-    private String project;
+    private String writerProject;
     @ApiModelProperty("表名")
-    private String tableName;
+    private String writerTableName;
     @ApiModelProperty("表名")
-    private List<String> column;
+    private List<String> writerColumn;
     @ApiModelProperty("分区")
-    private List<String> partition;
+    private List<String> writerPartition;
     @ApiModelProperty("odps的server地址")
-    private String odpsServer;
+    private String writerOdpsServer;
     @ApiModelProperty("odps的tunnel地址")
-    private String odpsTunnel;
+    private String writerOdpsTunnel;
+    @ApiModelProperty("失败后是否清除")
+    private Boolean writerTruncate = true;
+    @ApiModelProperty("阿里云账户")
+    private String writerAccount;
+
 
     public JSONObject makeJson() {
         JSONObject writer = new JSONObject();
         writer.put("name",writerName);
         //parameter模块
         JSONObject parameter = new JSONObject();
-        parameter.put("accessId",accessID);
-        parameter.put("accessKey",accessKey);
-        parameter.put("project",project);
-        parameter.put("partition",partition);
-        parameter.put("column",column);
-        parameter.put("odpsServer",odpsServer);
-        parameter.put("tunnerlServer",odpsTunnel);
-        parameter.put("truncate",true);
-        parameter.put("accountType","aliyun");
+        parameter.put("accessId",writerAccessID);
+        parameter.put("accessKey",writerAccessKey);
+        parameter.put("project",writerProject);
+        parameter.put("partition",writerPartition);
+        parameter.put("column",writerColumn);
+        parameter.put("odpsServer",writerOdpsServer);
+        parameter.put("tunnerlServer",writerOdpsTunnel);
+        parameter.put("truncate",writerTruncate);
+        parameter.put("accountType",writerAccount);
         writer.put("parameter",parameter);
         return writer;
     }

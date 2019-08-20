@@ -24,21 +24,21 @@ public class HdfsWriter {
     @ApiModelProperty("存储地址")
     private String writerPath;
     @ApiModelProperty("文件名称")
-    private String fileName;
+    private String writefileName;
     @ApiModelProperty("默认hdfs地址")
-    private String defaultFS;
+    private String writedefaultFS;
     @ApiModelProperty("字段")
     private List<Map<String,String>> writerColumns;
     @ApiModelProperty("文件类型")
-    private String fileType;
+    private String writefileType;
     @ApiModelProperty("区分键")
-    private String fieldDelimiter;
+    private String writefieldDelimiter;
     @ApiModelProperty("是否有kerberos认证")
-    private Boolean haveKerberos ;
+    private Boolean writehaveKerberos ;
     @ApiModelProperty("keytab路径")
-    private String kerberosKeytabFilePath;
+    private String writekerberosKeytabFilePath;
     @ApiModelProperty("kerberos用户")
-    private String kerberosPrincipal;
+    private String writekerberosPrincipal;
 
 
     public JSONObject makeJson(){
@@ -49,16 +49,16 @@ public class HdfsWriter {
         JSONObject parameter = new JSONObject();
         parameter.put("writerMode",writeMode);
         parameter.put("path",writerPath);
-        parameter.put("defaultFS",defaultFS);
+        parameter.put("defaultFS",writedefaultFS);
         parameter.put("column",writerColumns);
-        parameter.put("fileType",fileType);
-        parameter.put("fileName",fileName);
-        parameter.put("haveKerberos",haveKerberos);
-        if(haveKerberos){
-            parameter.put("kerberosKeytabFilePath",kerberosKeytabFilePath);
-            parameter.put("kerberosPrincipal",kerberosPrincipal);
+        parameter.put("fileType",writefileType);
+        parameter.put("fileName",writefileName);
+        parameter.put("haveKerberos",writehaveKerberos);
+        if(writehaveKerberos){
+            parameter.put("kerberosKeytabFilePath",writekerberosKeytabFilePath);
+            parameter.put("kerberosPrincipal",writekerberosPrincipal);
         }
-        parameter.put("fieldDelimiter",fieldDelimiter);
+        parameter.put("fieldDelimiter",writefieldDelimiter);
         writer.put("parameter",parameter);
         return writer;
     }

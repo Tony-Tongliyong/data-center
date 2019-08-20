@@ -20,34 +20,34 @@ public class OdpsReader {
     @ApiModelProperty("读取类型")
     private final String readerName = "odpsreader";
     @ApiModelProperty("连接账户名")
-    private String accessID;
+    private String readerAccessID;
     @ApiModelProperty("连接密码")
-    private String accessKey;
+    private String readerAccessKey;
     @ApiModelProperty("项目空间")
-    private String project;
+    private String readerProject;
     @ApiModelProperty("表名")
-    private String tableName;
+    private String readerTableName;
     @ApiModelProperty("表名")
-    private List<String> column;
+    private List<String> readerColumn;
     @ApiModelProperty("分区")
-    private List<String> partition;
+    private List<String> readerPartition;
     @ApiModelProperty("odps的server地址")
-    private String odpsServer;
+    private String readerOdpsServer;
     @ApiModelProperty("odps的tunnel地址")
-    private String odpsTunnel;
+    private String readerOdpsTunnel;
 
     public JSONObject makeJson(){
         JSONObject reader = new JSONObject();
         reader.put("name",readerName);
         //parameter模块
         JSONObject parameter = new JSONObject();
-        parameter.put("accessId",accessID);
-        parameter.put("accessKey",accessKey);
-        parameter.put("project",project);
-        parameter.put("partition",partition);
-        parameter.put("column",column);
-        parameter.put("odpsServer",odpsServer);
-        parameter.put("tunnerlServer",odpsTunnel);
+        parameter.put("accessId",readerAccessID);
+        parameter.put("accessKey",readerAccessKey);
+        parameter.put("project",readerProject);
+        parameter.put("partition",readerPartition);
+        parameter.put("column",readerColumn);
+        parameter.put("odpsServer",readerOdpsServer);
+        parameter.put("tunnerlServer",readerOdpsTunnel);
         reader.put("parameter",parameter);
         return reader;
     }

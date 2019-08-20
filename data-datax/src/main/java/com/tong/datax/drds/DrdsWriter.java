@@ -2,6 +2,7 @@ package com.tong.datax.drds;
 
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @time: 2019/8/20 16:16
  * @desc:
  */
+@Data
 public class DrdsWriter {
 
     @ApiModelProperty("写入类型")

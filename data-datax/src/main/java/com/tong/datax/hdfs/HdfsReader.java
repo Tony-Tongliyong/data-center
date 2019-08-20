@@ -23,21 +23,21 @@ public class HdfsReader {
     @ApiModelProperty("存储地址")
     private String readerPath;
     @ApiModelProperty("默认hdfs地址")
-    private String defaultFS;
+    private String readerdefaultFS;
     @ApiModelProperty("字段")
     private List<Map<String,String>> readerColumns;
     @ApiModelProperty("文件类型")
-    private String fileType;
+    private String readerfileType;
     @ApiModelProperty("编码格式")
-    private String encoding;
+    private String readerencoding;
     @ApiModelProperty("区分键")
-    private String fieldDelimiter;
+    private String readerfieldDelimiter;
     @ApiModelProperty("是否有kerberos认证")
-    private Boolean haveKerberos ;
+    private Boolean readerhaveKerberos ;
     @ApiModelProperty("keytab路径")
-    private String kerberosKeytabFilePath;
+    private String readerkerberosKeytabFilePath;
     @ApiModelProperty("kerberos用户")
-    private String kerberosPrincipal;
+    private String readerkerberosPrincipal;
 
     public JSONObject makeJson(){
         //reader模块
@@ -46,16 +46,16 @@ public class HdfsReader {
         //parameter模块
         JSONObject parameter = new JSONObject();
         parameter.put("path",readerPath);
-        parameter.put("defaultFS",defaultFS);
+        parameter.put("defaultFS",readerdefaultFS);
         parameter.put("column",readerColumns);
-        parameter.put("fileType",fileType);
-        parameter.put("encoding",encoding);
-        parameter.put("haveKerberos",haveKerberos);
-        if(haveKerberos){
-            parameter.put("kerberosKeytabFilePath",kerberosKeytabFilePath);
-            parameter.put("kerberosPrincipal",kerberosPrincipal);
+        parameter.put("fileType",readerfileType);
+        parameter.put("encoding",readerencoding);
+        parameter.put("haveKerberos",readerhaveKerberos);
+        if(readerhaveKerberos){
+            parameter.put("kerberosKeytabFilePath",readerkerberosKeytabFilePath);
+            parameter.put("kerberosPrincipal",readerkerberosPrincipal);
         }
-        parameter.put("fieldDelimiter",fieldDelimiter);
+        parameter.put("fieldDelimiter",readerfieldDelimiter);
         reader.put("parameter",parameter);
         return reader;
     }

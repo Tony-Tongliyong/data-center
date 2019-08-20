@@ -7,6 +7,8 @@ import com.tong.common.utils.FileUtils;
 import com.tong.common.utils.ShellUtils;
 import com.tong.datax.mysql.MySqlReader;
 import com.tong.datax.mysql.MySqlWriter;
+import com.tong.datax.odps.OdpsReader;
+import com.tong.datax.odps.OdpsWriter;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +36,17 @@ public class DataxController {
         JsonBulid<MySqlReader,MySqlWriter> jsonBulid = new JsonBulid<>();
         jsonBulid.setReader(mysqlReader);
         jsonBulid.setWriter(mysqlWriter);
+        JSONObject jsonObject = jsonBulid.makeJson();
+        return ResultUtils.success(jsonObject);
+    }
+
+    @ApiOperation(value="odps数据导入到odps参数配置，生成JSON字符串", notes="odps数据导入到odps")
+    @RequestMapping(value = "odpsToOdpsJSON/", method = RequestMethod.POST)
+    public JSONResult odpsToOdpsJSON(OdpsReader odpsReader,
+                                       OdpsWriter odpsWriter){
+        JsonBulid<OdpsReader,OdpsWriter> jsonBulid = new JsonBulid<>();
+        jsonBulid.setReader(odpsReader);
+        jsonBulid.setWriter(odpsWriter);
         JSONObject jsonObject = jsonBulid.makeJson();
         return ResultUtils.success(jsonObject);
     }
