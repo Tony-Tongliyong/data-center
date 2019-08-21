@@ -39,53 +39,5 @@
         <table tableName="mapping_relation" domainObjectName="MappingRelation">
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
-        <table tableName="dept_info" domainObjectName="DeptInfo">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="table_info" domainObjectName="TableInfo">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="corporate_table_info" domainObjectName="CorporateTableInfo">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="corporate_table_column_info" domainObjectName="CorporateTableColumnInfo">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="table_column_info" domainObjectName="TableColumnInfo">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="table_task_record" domainObjectName="TableTaskRecord">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="data_input_statistic" domainObjectName="DataInputStatistic">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="data_input_unrepeat_statistic" domainObjectName="DataInputUnrepeatStatistic">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="cor_person_city_statistics" domainObjectName="CorPersonCityStatistics">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="cor_person_industry_statistics" domainObjectName="CorPersonIndustryStatistics">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="cor_person_subject_statistics" domainObjectName="CorPersonSubjectStatistics">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="statistic_result_log" domainObjectName="StatisticResultLog">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="column_algorithmic" domainObjectName="ColumnAlgorithmic">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="exchange_rate" domainObjectName="ExchangeRate">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="industry_dict" domainObjectName="IndustryDict">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table tableName="relation_table" domainObjectName="RelationTable">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>
     </context>
 </generatorConfiguration>

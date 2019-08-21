@@ -27,7 +27,11 @@ public class JsonBulid<T1,T2> {
 
     String channel;
 
-     JSONObject makeJson(){
+    /**
+     * 生成json模块
+     * @return
+     */
+    JSONObject makeJson(){
         JSONObject json = new JSONObject();
         JSONObject job = new JSONObject();
         JSONObject setting = new JSONObject();
