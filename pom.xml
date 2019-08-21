@@ -16,6 +16,8 @@
         <module>data-datax</module>
         <module>data-connection</module>
         <module>data-spark</module>
+        <module>data-redis</module>
+        <module>data-dubbo</module>
     </modules>
 
     <parent>
@@ -47,6 +49,11 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.0</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -115,6 +122,10 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${springfox-swagger-ui.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
     </dependencies>
 </project>

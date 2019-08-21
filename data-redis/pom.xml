@@ -9,22 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>data-web</artifactId>
+    <artifactId>data-redis</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.tong</groupId>
-            <artifactId>data-datax</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.tong</groupId>
-            <artifactId>data-connection</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.tong</groupId>
-            <artifactId>data-redis</artifactId>
+            <artifactId>data-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
