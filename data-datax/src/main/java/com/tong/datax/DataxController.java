@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: DataxController
  * @time: 2019/7/12 16:40
  * @desc:

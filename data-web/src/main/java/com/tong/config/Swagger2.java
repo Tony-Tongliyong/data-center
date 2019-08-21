@@ -12,7 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: Swagger2
  * @time: 2019/7/11 11:39
  * @desc:

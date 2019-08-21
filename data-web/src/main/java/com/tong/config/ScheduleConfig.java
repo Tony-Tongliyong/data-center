@@ -8,7 +8,7 @@ import static java.util.concurrent.Executors.newScheduledThreadPool;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: ScheduleConfig
  * @time: 2019/1/19 9:54
  * @desc:

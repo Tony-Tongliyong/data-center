@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: DownloadUtils
  * @time: 2019/8/12 16:47
  * @desc:

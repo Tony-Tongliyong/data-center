@@ -10,7 +10,7 @@ import tk.mybatis.mapper.autoconfigure.MapperAutoConfiguration;
 
 /**
  * @author: tongly
- * @contact:18158190830@163.com
+ * @contact: 18158190830@163.com
  * @file: Application
  * @time: 2019/3/26 13:58
  * @desc:

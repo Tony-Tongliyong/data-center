@@ -9,7 +9,7 @@ import java.sql.Connection;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: Connection
  * @time: 2019/7/23 14:27
  * @desc:

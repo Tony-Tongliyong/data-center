@@ -6,7 +6,7 @@ import java.sql.Connection;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: ConnectionResult
  * @time: 2019/8/21 15:46
  * @desc:

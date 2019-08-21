@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: OdpsWriter
  * @time: 2019/8/14 10:39
  * @desc:

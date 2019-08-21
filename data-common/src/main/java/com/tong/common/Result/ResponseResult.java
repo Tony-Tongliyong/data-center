@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: ResultUtils
  * @time: 2019/7/13 11:09
  * @desc:

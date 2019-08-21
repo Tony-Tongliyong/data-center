@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: MysqlConnection
  * @time: 2019/7/24 14:01
  * @desc:

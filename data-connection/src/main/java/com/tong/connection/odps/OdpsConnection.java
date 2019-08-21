@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: OdpsConnection
  * @time: 2019/8/21 15:08
  * @desc:

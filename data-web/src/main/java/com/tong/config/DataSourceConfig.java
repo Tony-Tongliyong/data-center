@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: DataSourceConfig
  * @time: 2019/3/26 14:00
  * @desc:

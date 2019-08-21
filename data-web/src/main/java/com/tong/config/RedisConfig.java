@@ -20,7 +20,7 @@ import java.time.Duration;
 /**
  * Redis配置类
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: NoWarnMapper
  * @time: 2019/3/26 14:00
  * @desc:

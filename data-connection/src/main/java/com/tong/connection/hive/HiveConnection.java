@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: HiveConnection
  * @time: 2019/8/21 15:23
  * @desc:

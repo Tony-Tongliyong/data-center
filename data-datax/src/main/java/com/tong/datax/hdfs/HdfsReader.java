@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: HdfsReader
  * @time: 2019/8/20 16:34
  * @desc:

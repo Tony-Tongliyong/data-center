@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 
 /**
  * @author: tongly
- * @contact:wuxin@yscredit.com
+ * @contact: 18158190830@163.com
  * @file: SecondDataSourceConfig
  * @time: 2019/3/29 17:27
  * @desc:
