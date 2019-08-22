@@ -1,6 +1,5 @@
 package com.tong.datax.odps;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -51,8 +50,5 @@ public class OdpsReader {
         reader.put("parameter",parameter);
         return reader;
     }
-
-
-
 
 }

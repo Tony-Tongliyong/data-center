@@ -25,7 +25,7 @@ import javax.sql.DataSource;
 public class SecondDataSourceConfig {
 
     @Bean(name = "secondDataSource")
-    @ConfigurationProperties(prefix="datasource.druid.second")
+    @ConfigurationProperties(prefix="spring.datasource2.druid")
     public DataSource secondDataSource() {
         log.info("secondDatasource初始化");
         return new DruidDataSource();

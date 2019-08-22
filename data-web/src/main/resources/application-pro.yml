@@ -1,0 +1,65 @@
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://172.21.244.116:3306/youshu?characterEncoding=utf-8&useSSL=false&zeroDateTimeBehavior=convertToNull
+      username: youshu
+      password: Shuzheng@2019
+      driver-class-name: com.mysql.jdbc.Driver
+      initial-size: 10
+      max-active: 30
+      min-idle: 10
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      use-global-data-source-stat: true
+      filter:
+        stat:
+          enabled: true
+        wall:
+          enabled: true
+        log4j2:
+          enabled: true
+  datasource2:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://172.21.244.116:3306/detail?characterEncoding=utf-8&useSSL=false&zeroDateTimeBehavior=convertToNull
+      username: youshu
+      password: Shuzheng@2019
+      time-between-eviction-runs-millis: 60000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+
+  redis:
+    host: 172.21.244.115
+    port: 6379
+    database: 1
+    pool:
+      jedis:
+        max-idle: 100
+        min-idle: 30
+        max-wait: 1000
+        max-active: 200
+
+  dubbo:
+    protocol:
+      name: dubbo
+      port: 3004
+    application :
+      name: clean_govern_dubbo_provider
+    registry:
+      address: zookeeper://172.21.244.115:2181
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  params: count=countSql
+  support-methods-arguments: true
+
+

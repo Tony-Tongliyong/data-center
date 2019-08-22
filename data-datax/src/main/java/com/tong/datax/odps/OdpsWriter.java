@@ -29,7 +29,7 @@ public class OdpsWriter {
     @ApiModelProperty("表名")
     private List<String> writerColumn;
     @ApiModelProperty("分区")
-    private List<String> writerPartition;
+    private String writerPartition;
     @ApiModelProperty("odps的server地址")
     private String writerOdpsServer;
     @ApiModelProperty("odps的tunnel地址")

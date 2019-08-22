@@ -42,6 +42,8 @@
         <slf4j.version>1.7.14</slf4j.version>
         <springfox-swagger2.version>2.7.0</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.7.0</springfox-swagger-ui.version>
+        <scala.version>2.11.8</scala.version>
+        <spark.version>2.1.1</spark.version>
     </properties>
 
 
@@ -134,4 +136,5 @@
             <version>${hive.version}</version>
         </dependency>
     </dependencies>
+
 </project>

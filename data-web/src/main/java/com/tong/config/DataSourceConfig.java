@@ -33,7 +33,7 @@ public class DataSourceConfig {
 
     @Primary
     @Bean(name = "dataSource")
-    @ConfigurationProperties(prefix="datasource.druid")
+    @ConfigurationProperties(prefix="spring.datasource.druid")
     public DataSource primaryDataSource() {
         log.info("datasource初始化");
         return new DruidDataSource();

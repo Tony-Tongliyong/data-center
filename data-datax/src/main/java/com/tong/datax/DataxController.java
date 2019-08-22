@@ -27,9 +27,9 @@ public class DataxController {
      * @return
      */
     @ApiOperation(value="mysql数据导入到mysql参数配置，生成JSON字符串", notes="mysql数据导入到mysql")
-    @RequestMapping(value = "mysqlToMysqlJSON/", method = RequestMethod.POST)
-    public ResponseResult mysqlToMysqlJSON(MySqlReader mysqlReader,
-                                           MySqlWriter mysqlWriter){
+    @RequestMapping(value = "/mysqlToMysqlJSON", method = RequestMethod.POST)
+    public ResponseResult mysqlToMysqlJSON(@RequestBody MySqlReader mysqlReader,
+                                           @RequestBody MySqlWriter mysqlWriter){
         JsonBulid<MySqlReader,MySqlWriter> jsonBulid = new JsonBulid<>();
         jsonBulid.setReader(mysqlReader);
         jsonBulid.setWriter(mysqlWriter);
@@ -38,9 +38,9 @@ public class DataxController {
     }
 
     @ApiOperation(value="odps数据导入到odps参数配置，生成JSON字符串", notes="odps数据导入到odps")
-    @RequestMapping(value = "odpsToOdpsJSON/", method = RequestMethod.POST)
-    public ResponseResult odpsToOdpsJSON(OdpsReader odpsReader,
-                                       OdpsWriter odpsWriter){
+    @RequestMapping(value = "/odpsToOdpsJSON", method = RequestMethod.POST)
+    public ResponseResult odpsToOdpsJSON(@RequestBody OdpsReader odpsReader,
+                                         @RequestBody OdpsWriter odpsWriter){
         JsonBulid<OdpsReader,OdpsWriter> jsonBulid = new JsonBulid<>();
         jsonBulid.setReader(odpsReader);
         jsonBulid.setWriter(odpsWriter);

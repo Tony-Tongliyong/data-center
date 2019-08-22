@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+server:
+  port: 8068
+  servlet:
+    context-path: /data
+logging:
+  config: classpath:logback-spring.xml
+
+
