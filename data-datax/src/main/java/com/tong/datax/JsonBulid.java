@@ -3,6 +3,8 @@ package com.tong.datax;
 import com.alibaba.fastjson.JSONObject;
 import com.tong.datax.drds.DrdsReader;
 import com.tong.datax.drds.DrdsWriter;
+import com.tong.datax.hbase.HBaseReader;
+import com.tong.datax.hbase.HBaseWriter;
 import com.tong.datax.hdfs.HdfsReader;
 import com.tong.datax.hdfs.HdfsWriter;
 import com.tong.datax.mysql.MySqlReader;
@@ -60,7 +62,9 @@ public class JsonBulid<T1,T2> {
             return ((DrdsReader) reader).makeJson();
         }if(reader instanceof HdfsReader){
             return ((HdfsReader) reader).makeJson();
-        }else {
+        }if(reader instanceof HBaseReader){
+            return ((HBaseReader) reader).makeJson();
+        } else{
             return null;
         }
     }
@@ -78,6 +82,8 @@ public class JsonBulid<T1,T2> {
             return ((DrdsWriter) writer).makeJson();
         }if(writer instanceof HdfsWriter){
             return ((HdfsWriter) writer).makeJson();
+        }if(writer instanceof HBaseWriter){
+            return ((HBaseWriter) writer).makeJson();
         }else {
             return null;
         }
