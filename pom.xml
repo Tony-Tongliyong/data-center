@@ -18,7 +18,7 @@
         <module>data-spark</module>
         <module>data-redis</module>
         <module>data-dubbo</module>
-        <module>data-spark</module>
+        <module>data-udtf</module>
     </modules>
 
     <parent>
@@ -43,7 +43,7 @@
         <springfox-swagger2.version>2.7.0</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.7.0</springfox-swagger-ui.version>
         <scala.version>2.11.8</scala.version>
-        <spark.version>2.1.1</spark.version>
+        <spark.version>2.2.1</spark.version>
     </properties>
 
 

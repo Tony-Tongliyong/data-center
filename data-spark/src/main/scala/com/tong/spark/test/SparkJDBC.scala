@@ -12,7 +12,6 @@ object SparkJDBC {
       .appName("Spark Statistic")
       .master("local[2]")
       .getOrCreate()
-
     val reader  = spark.read.format("jdbc")
 
     reader.option("url","jdbc:mysql://192.168.40.14:3306/clean_quzhou?characterEncoding=utf-8&useSSL=false&zeroDateTimeBehavior=convertToNull")
@@ -35,6 +34,10 @@ object SparkJDBC {
 
     var baseRoles = DF.where(s"role_name = 'admin'")
 
+    baseRoles.rdd.map(x=>{
+
+    })
+
     for(baseRole <- baseRoles){
       println(baseRole)
     }
@@ -52,4 +55,5 @@ object SparkJDBC {
     }
 
   }
+
 }

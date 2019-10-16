@@ -1,7 +1,7 @@
 package com.tong.redis;
 
 import com.tong.common.Result.ResponseResult;
-import com.tong.common.utils.RedisUtils;
+import com.tong.common.utils.redis.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

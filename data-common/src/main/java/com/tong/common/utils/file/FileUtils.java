@@ -1,4 +1,4 @@
-package com.tong.common.utils;
+package com.tong.common.utils.file;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedWriter;

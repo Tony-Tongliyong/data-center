@@ -5,7 +5,6 @@ import com.tong.connection.mysql.MysqlConnection;
 import com.tong.connection.odps.OdpsConnection;
 import lombok.Data;
 
-import java.sql.Connection;
 
 /**
  * @author: tongly

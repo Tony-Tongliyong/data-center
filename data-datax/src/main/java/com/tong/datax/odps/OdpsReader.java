@@ -26,7 +26,7 @@ public class OdpsReader {
     private String readerProject;
     @ApiModelProperty("表名")
     private String readerTableName;
-    @ApiModelProperty("表名")
+    @ApiModelProperty("字段名")
     private List<String> readerColumn;
     @ApiModelProperty("分区")
     private List<String> readerPartition;
