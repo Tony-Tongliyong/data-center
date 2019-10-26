@@ -71,10 +71,11 @@ public class HiveConnection {
             connectionResult.setSuccess(0);
             connectionResult.setMessage("连接hive异常，报错原因：无法加载驱动类");
         } catch (SQLException e) {
+            e.printStackTrace();
             connectionResult.setSuccess(0);
             connectionResult.setMessage("连接hive异常，报错可能原因：hive地址异常、网络异常等");
         }
-        connectionResult.setConnection(connection);
+//        connectionResult.setConnection(connection);
         return connectionResult;
     }
 }

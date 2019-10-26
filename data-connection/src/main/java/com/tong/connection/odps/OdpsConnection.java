@@ -45,7 +45,7 @@ public class OdpsConnection {
             connectionResult.setSuccess(0);
             connectionResult.setMessage("连接odps异常,报错可能原因：odps连接地址异常、网络异常等");
         }
-        connectionResult.setConnection(connection);
+//        connectionResult.setConnection(connection);
         return connectionResult;
     }
 

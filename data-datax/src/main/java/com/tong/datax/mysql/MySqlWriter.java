@@ -1,12 +1,13 @@
 package com.tong.datax.mysql;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author: tongly
@@ -35,7 +36,7 @@ public class MySqlWriter {
     @ApiModelProperty("表名")
     private List<String> writerTable;
     @ApiModelProperty("连接地址")
-    private List<String> writerJdbcUrl;
+    private String writerJdbcUrl;
 
 
     public JSONObject makeJson(){
@@ -50,9 +51,10 @@ public class MySqlWriter {
         parameter.put("preSql",preSql);
         session.add("set session sql_mode='ANSI'");
         parameter.put("session",session);
-        JSONObject connection = new JSONObject();
-        connection.put("table",writerTable);
-        connection.put("jdbcUrl",writerJdbcUrl);
+        List<Map<String,Object>> connection = new ArrayList();
+        Map<String,Object> map = new HashMap<>();
+        map.put("table",writerTable);
+        map.put("jdbcUrl",writerJdbcUrl);
         parameter.put("connection",connection);
 
         writer.put("parameter",parameter);

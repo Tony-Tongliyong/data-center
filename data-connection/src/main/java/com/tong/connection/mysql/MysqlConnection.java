@@ -27,7 +27,7 @@ public class MysqlConnection {
     @ApiModelProperty("账户密码")
     private String mysqlPwd;
 
-    public ConnectionResult getConnection(){
+    public ConnectionResult getConnectionResult(){
         ConnectionResult connectionResult = new ConnectionResult();
         Connection connection = null;
         try {
@@ -40,7 +40,7 @@ public class MysqlConnection {
             connectionResult.setMessage("mysql连接异常，报错原因：无法加载驱动类");
         } catch (SQLException e) {
             connectionResult.setSuccess(0);
-            connectionResult.setMessage("mysql连接异常，报错可能原因：mysql连接地址出错、网络异常等");
+            connectionResult.setMessage("mysql连接异常，报错可能原因：mysql连接地址出错、网络异常等:"+e);
         }
         connectionResult.setConnection(connection);
         return connectionResult;

@@ -4,7 +4,6 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <properties resource="jdbc.properties"/>
 
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
         <!-- tk.mybatis配置 -->
@@ -16,10 +15,10 @@
         </plugin>
 
         <!-- 数据库链接 -->
-        <jdbcConnection driverClass="${datasource.druid.driver-class-name}"
-                        connectionURL="${datasource.druid.url}"
-                        userId="${datasource.druid.username}"
-                        password="${datasource.druid.password}">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.40.14:3306/corporate_library"
+                        userId="root"
+                        password="123456">
         </jdbcConnection>
 
         <!--&lt;!&ndash; 数据库链接 &ndash;&gt;-->
@@ -29,14 +28,14 @@
                         <!--password="root">-->
         <!--</jdbcConnection>-->
         <!-- 生成实体类的包名和位置 -->
-        <javaModelGenerator targetPackage="com.shuzheng.legalpersondb.dao.entity" targetProject="C:\Users\54192\IdeaProjects\legal_person_db\data-dao\src\main\java"/>
+        <javaModelGenerator targetPackage="com.tong.mybatis.entity" targetProject="C:\Users\54192\IdeaProjects\data-center\data-dao\src\main\java"/>
         <!-- 生成的映射文件包名和位置 -->
-        <sqlMapGenerator targetPackage="com.shuzheng.legalpersondb.dao.xml" targetProject="C:\Users\54192\IdeaProjects\legal_person_db\data-dao\src\main\java"/>
+        <sqlMapGenerator targetPackage="com.tong.mybatis.xml" targetProject="C:\Users\54192\IdeaProjects\data-center\data-dao\src\main\java"/>
         <!-- 生成DAO的包名和位置 -->
-        <javaClientGenerator targetPackage="com.shuzheng.legalpersondb.dao.mapper" targetProject="C:\Users\54192\IdeaProjects\legal_person_db\data-dao\src\main\java" type="XMLMAPPER"/>
+        <javaClientGenerator targetPackage="com.tong.mybatis.mapper" targetProject="C:\Users\54192\IdeaProjects\data-center\data-dao\src\main\java" type="XMLMAPPER"/>
 
         <!-- 要生成的那些表 -->
-        <table tableName="mapping_relation" domainObjectName="MappingRelation">
+        <table tableName="table_column_info" domainObjectName="TableColumnInfo">
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
     </context>

@@ -13,6 +13,11 @@ import com.tong.datax.odps.OdpsReader;
 import com.tong.datax.odps.OdpsWriter;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author: tongly
  * @contact: 18158190830@163.com
@@ -40,9 +45,11 @@ public class JsonBulid<T1,T2> {
         JSONObject speed = new JSONObject();
         speed.put("channel",channel);
         setting.put("speed",speed);
-        JSONObject content = new JSONObject();
-        content.put("reader",reader());
-        content.put("writer",writer());
+        List<Map<String,Object>> content = new ArrayList<>();
+        Map<String,Object> map = new HashMap<>();
+        map.put("reader",reader());
+        map.put("writer",writer());
+        content.add(map);
         job.put("setting",setting);
         job.put("content",content);
         json.put("job",job);

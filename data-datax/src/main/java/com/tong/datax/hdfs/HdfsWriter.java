@@ -20,7 +20,7 @@ public class HdfsWriter {
     @ApiModelProperty("写入类型")
     private final String writerName = "hdfswriter";
     @ApiModelProperty("写入模式")
-    private String writeMode = "insert";
+    private String writeMode = "append";
     @ApiModelProperty("存储地址")
     private String writerPath;
     @ApiModelProperty("文件名称")
@@ -47,7 +47,7 @@ public class HdfsWriter {
         writer.put("name",writerName);
         //parameter模块
         JSONObject parameter = new JSONObject();
-        parameter.put("writerMode",writeMode);
+        parameter.put("writeMode",writeMode);
         parameter.put("path",writerPath);
         parameter.put("defaultFS",writedefaultFS);
         parameter.put("column",writerColumns);
