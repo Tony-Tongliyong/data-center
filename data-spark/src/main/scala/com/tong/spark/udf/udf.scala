@@ -1,5 +1,6 @@
 package com.tong.spark.udf
 
+import java.io.File
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{Row, SparkSession}
 import com.tong.spark.reader.RdmsReader.run
@@ -13,10 +14,14 @@ import com.tong.spark.reader.RdmsReader.run
 object udf {
 
   def main(args: Array[String]): Unit = {
+    val warehouseLocation = new File("spark-warehouse").getAbsolutePath
+    println(warehouseLocation+"")
     val ss = SparkSession
       .builder()
       .appName("statisic")
-      .master("local[8]")
+      .master("local[2]")
+      .config("spark.sql.warehouse.dir", warehouseLocation)
+//      .enableHiveSupport()
       .getOrCreate()
 
     val user = "root"
@@ -27,7 +32,7 @@ object udf {
     val dataBase = "aquilatest"
     val table = "e_pri_person"
     val useSql = true
-    val sql1 = ""
+    val sql1 = "select * from e_pri_person"
 
     print(sql1)
 
@@ -70,7 +75,7 @@ object udf {
 //    udf
     ss.sqlContext.udf.register("AdministrativeEnforcementUDAF",getResult _)
 
-    val data2 = ss.sqlContext.sql("select pripid,cerno,AdministrativeEnforcementUDAF(pripid,cerno,num)  from bigDataTable ").toDF()
+    val data2 = ss.sqlContext.sql("select pripid,cerno,AdministrativeEnforcementUDAF(pripid,cerno,num)  from bigDataTable ").toDF().show()
 
 
   }

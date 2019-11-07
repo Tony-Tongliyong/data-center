@@ -5,7 +5,6 @@ import com.tong.mybatis.mapper.TableColumnInfoMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,7 +31,7 @@ public class createController {
         hiveTable.setTableColumnInfos(tableColumnInfoMapper.selectColumnByTable(tableName));
         hiveTable.setTableName(tableName);
         hiveTable.setHdfsDefaultFs("hdfs://master:8020");
-        hiveTable.setDB(db);
+        hiveTable.setDb(db);
         hiveTable.setHdfsDataBasePath("/user/hive/warehouse/db_legal_person/"+tableName);
         Execute<HiveTable> execute = new Execute<>();
         execute.setTable(hiveTable);

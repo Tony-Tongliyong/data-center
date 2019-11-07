@@ -3,6 +3,7 @@ package com.tong.datax;
 import com.alibaba.fastjson.JSONObject;
 import com.tong.datax.drds.DrdsReader;
 import com.tong.datax.drds.DrdsWriter;
+import com.tong.datax.elasticsearch.ElasticSearchWriter;
 import com.tong.datax.hbase.HBaseReader;
 import com.tong.datax.hbase.HBaseWriter;
 import com.tong.datax.hdfs.HdfsReader;
@@ -26,7 +27,7 @@ import java.util.Map;
  * @desc:
  */
 @Data
-public class JsonBulid<T1,T2> {
+public class JsonBuild<T1,T2> {
 
     T1 reader;
 
@@ -91,7 +92,9 @@ public class JsonBulid<T1,T2> {
             return ((HdfsWriter) writer).makeJson();
         }if(writer instanceof HBaseWriter){
             return ((HBaseWriter) writer).makeJson();
-        }else {
+        }if(writer instanceof ElasticSearchWriter){
+            return ((ElasticSearchWriter) writer).makeJson();
+        } else{
             return null;
         }
     }

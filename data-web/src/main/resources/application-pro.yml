@@ -1,9 +1,9 @@
 spring:
   datasource:
     druid:
-      url: jdbc:mysql://172.21.244.116:3306/youshu?characterEncoding=utf-8&useSSL=false&zeroDateTimeBehavior=convertToNull
-      username: youshu
-      password: Shuzheng@2019
+      url: jdbc:mysql://localhost:3306/youshu?characterEncoding=utf-8&useSSL=false&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root
       driver-class-name: com.mysql.jdbc.Driver
       initial-size: 10
       max-active: 30
@@ -29,9 +29,9 @@ spring:
   datasource2:
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://172.21.244.116:3306/detail?characterEncoding=utf-8&useSSL=false&zeroDateTimeBehavior=convertToNull
-      username: youshu
-      password: Shuzheng@2019
+      url: jdbc:mysql://localhost:3306/detail?characterEncoding=utf-8&useSSL=false&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root
       time-between-eviction-runs-millis: 60000
       validation-query: SELECT 1 FROM DUAL
       test-while-idle: true

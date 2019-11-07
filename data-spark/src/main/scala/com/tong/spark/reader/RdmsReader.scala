@@ -5,8 +5,7 @@ import java.util.Properties
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 /**
-  * @: javinjunfeng
-  * @: 杭州数政科技有限公司
+
   * @: 2019/6/5 3:12 PM
   *
   *              读关系型数据库

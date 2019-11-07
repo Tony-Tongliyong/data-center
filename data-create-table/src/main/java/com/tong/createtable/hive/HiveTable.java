@@ -23,11 +23,13 @@ public class HiveTable {
 
     private String hdfsDataBasePath;
 
-    private String DB;
+    private String db;
+
+    private String fileType;
 
     public String createHiveTableSQL(){
-        StringBuffer sql = new StringBuffer();
-        StringBuffer baseColunmStr = new StringBuffer();
+        StringBuilder sql = new StringBuilder();
+        StringBuilder baseColunmStr = new StringBuilder();
         String baseColunm = getHiveBaseColunmStr(tableColumnInfos);
 
         // 添加清洗所需的字段
@@ -35,18 +37,19 @@ public class HiveTable {
         baseColunmStr.append(", `hash_unique` string COMMENT '业务主键MD5值（清洗增加）'");
 
         sql.append("create table if not exists ");
-        sql.append(DB);
+        sql.append(db);
         sql.append(".");
         sql.append(tableName);
         sql.append(" (");
         sql.append(baseColunmStr);
         sql.append(" )  ROW FORMAT DELIMITED FIELDS TERMINATED BY '\\t' ");
-        sql.append(" STORED AS TEXTFILE ");
+        sql.append(" STORED AS  ");
+        sql.append(fileType);
         sql.append(" LOCATION '");
         sql.append(hdfsDefaultFs);
         sql.append(hdfsDataBasePath);
         sql.append("/");
-        sql.append(DB);
+        sql.append(db);
         sql.append("/");
         sql.append(tableName);
         sql.append("' ");

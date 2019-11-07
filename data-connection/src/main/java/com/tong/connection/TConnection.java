@@ -3,6 +3,7 @@ package com.tong.connection;
 import com.tong.connection.hive.HiveConnection;
 import com.tong.connection.mysql.MysqlConnection;
 import com.tong.connection.odps.OdpsConnection;
+import com.tong.connection.sqlserver.SqlserverConnection;
 import lombok.Data;
 
 
@@ -20,11 +21,13 @@ public class TConnection<T> {
 
     public ConnectionResult getConnection(){
         if(connection instanceof MysqlConnection){
-            return ((MysqlConnection) connection).getConnection();
+            return ((MysqlConnection) connection).getConnectionResult();
         }if(connection instanceof OdpsConnection){
-            return ((OdpsConnection) connection).getConnection();
+            return ((OdpsConnection) connection).getConnectionResult();
         }if(connection instanceof HiveConnection){
-            return ((HiveConnection) connection).getConnection();
+            return ((HiveConnection) connection).getConnectionResult();
+        }if(connection instanceof SqlserverConnection){
+            return ((SqlserverConnection) connection).getConnectionResult();
         }
         return null;
     }

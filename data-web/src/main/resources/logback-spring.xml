@@ -66,7 +66,7 @@
 
     <!--生产环境的日志配置，通过spring.profiles.active属性来决定-->
     <springProfile name="pro">
-        <property name="LOG_PATH" value="/home/youshu/yscredit/tly/db_legal_person/logs/"></property>
+        <property name="LOG_PATH" value="/home/data/logs/"></property>
         <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
             <encoder>
                 <pattern>${CONSOLE_LOG_PATTERN}</pattern>

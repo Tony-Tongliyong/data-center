@@ -26,7 +26,7 @@ public class OdpsWriter {
     private String writerProject;
     @ApiModelProperty("表名")
     private String writerTableName;
-    @ApiModelProperty("表名")
+    @ApiModelProperty("字段名")
     private List<String> writerColumn;
     @ApiModelProperty("分区")
     private String writerPartition;

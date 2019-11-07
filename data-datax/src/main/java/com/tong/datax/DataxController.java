@@ -41,7 +41,7 @@ public class DataxController {
     @RequestMapping(value = "/mysqlToMysqlJSON", method = RequestMethod.POST)
     public ResponseResult mysqlToMysqlJSON( MySqlReader mysqlReader,
                                             MySqlWriter mysqlWriter){
-        JsonBulid<MySqlReader,MySqlWriter> jsonBulid = new JsonBulid<>();
+        JsonBuild<MySqlReader,MySqlWriter> jsonBulid = new JsonBuild<>();
         jsonBulid.setReader(mysqlReader);
         jsonBulid.setWriter(mysqlWriter);
         JSONObject jsonObject = jsonBulid.makeJson();
@@ -52,7 +52,7 @@ public class DataxController {
     @RequestMapping(value = "/odpsToOdpsJSON", method = RequestMethod.POST)
     public ResponseResult odpsToOdpsJSON(@RequestBody OdpsReader odpsReader,
                                          @RequestBody OdpsWriter odpsWriter){
-        JsonBulid<OdpsReader,OdpsWriter> jsonBulid = new JsonBulid<>();
+        JsonBuild<OdpsReader,OdpsWriter> jsonBulid = new JsonBuild<>();
         jsonBulid.setReader(odpsReader);
         jsonBulid.setWriter(odpsWriter);
         JSONObject jsonObject = jsonBulid.makeJson();
@@ -62,7 +62,7 @@ public class DataxController {
     @ApiOperation(value="mysql数据导入到hdfs参数配置，生成JSON字符串", notes="mysql数据导入到hdfs")
     @RequestMapping(value = "/mysqlToHdfs", method = RequestMethod.POST)
     public ResponseResult mysqlToHdfs(MySqlReader mySqlReader,HdfsWriter hdfsWriter){
-        JsonBulid<MySqlReader, HdfsWriter> jsonBulid = new JsonBulid<>();
+        JsonBuild<MySqlReader, HdfsWriter> jsonBulid = new JsonBuild<>();
         List<String> columns = new ArrayList<>();
         columns = tableColumnInfoMapper.selectColumnsByTable(mySqlReader.getReaderTable().get(0));
         mySqlReader.setReaderColumns(columns);
