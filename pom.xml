@@ -22,6 +22,7 @@
         <module>data-algorithm</module>
         <module>data-create-table</module>
         <module>data-sdk</module>
+        <module>data-flink</module>
     </modules>
 
     <parent>
@@ -45,9 +46,10 @@
         <slf4j.version>1.7.14</slf4j.version>
         <springfox-swagger2.version>2.7.0</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.7.0</springfox-swagger-ui.version>
-        <scala.version>2.13.1</scala.version>
+        <scala.version>2.11.0</scala.version>
         <spark.version>2.2.1</spark.version>
         <odps.version>0.30.9-public</odps.version>
+        <flink.version>1.9.1</flink.version>
     </properties>
 
 
@@ -120,16 +122,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${springfox-swagger2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${springfox-swagger-ui.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
@@ -149,22 +142,16 @@
             <artifactId>sqljdbc4</artifactId>
             <version>4.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.aliyun.odps</groupId>
-            <artifactId>odps-sdk-commons</artifactId>
-            <version>${odps.version}</version>
-        </dependency>
 
         <dependency>
-            <groupId>com.aliyun.odps</groupId>
-            <artifactId>odps-sdk-core</artifactId>
-            <version>${odps.version}</version>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger2.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>com.aliyun.odps</groupId>
-            <artifactId>odps-sdk-udf</artifactId>
-            <version>${odps.version}</version>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger-ui.version}</version>
         </dependency>
 
     </dependencies>

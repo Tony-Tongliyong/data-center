@@ -11,9 +11,14 @@ import com.tong.datax.odps.OdpsWriter;
 import com.tong.mybatis.mapper.TableColumnInfoMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +34,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("datax")
 @Api("DataxController相关的api")
+@Slf4j
 public class DataxController {
 
     @Autowired
@@ -80,5 +86,28 @@ public class DataxController {
         return ResponseResult.success(jsonObject);
     }
 
+    @PostMapping("/download")
+    public void download(HttpServletRequest request,HttpServletResponse response, String name, String content) throws IOException {
+        // 告诉浏览器用什么软件可以打开此文件
+        response.setHeader("content-Type", "multipart/form-data");
+        response.setCharacterEncoding("UTF-8");
+        // 下载文件的默认名称
+        String agent = request.getHeader("User-agent");
+        log.info(agent);
+        response.setHeader("Content-Disposition",
+                "attachment;filename=" + URLEncoder.encode(name + ".txt", "utf-8"));
+        OutputStream out = response.getOutputStream();
+        try {
+            byte[] bytes = content.getBytes();
+            for(int i=0;i<bytes.length;i++) {
+                out.write(bytes[i]);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            //此处需要关闭 wb 变量
+            out.close();
+        }
+    }
 
 }

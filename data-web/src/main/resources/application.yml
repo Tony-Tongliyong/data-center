@@ -1,8 +1,8 @@
 spring:
   profiles:
-    active: pro
+    active: dev
 server:
-  port: 8080
+  port: 8068
   servlet:
     context-path: /data
 logging:
